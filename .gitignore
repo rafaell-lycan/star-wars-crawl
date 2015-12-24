@@ -1,0 +1,4 @@
+node_modules
+app/vendor
+app/assets/css/style.min.css
+app/assets/js/app.min.js
