@@ -1,0 +1,99 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  background-image: url('../img/stars-bg.jpg');
+  font-family: 'News Cycle', sans-serif;
+  color: #ff6;
+  overflow: hidden;
+}
+
+section{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.intro{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #000;
+  color: #4bd5ee;
+  opacity: 0;
+  animation: intro 6s ease-out 1s;
+}
+
+.intro h2{
+  margin: 20% auto 0;
+  width: 15em;
+  font-size: 200%;
+}
+
+.logo {
+  text-align: center;
+}
+.logo img {
+  width: 18em;
+  margin: 20% auto 0;
+  opacity: 0;
+  animation: logo 10s ease-out 9.5s;
+}
+
+.title {
+  position: relative;
+  width: 18em;
+  margin: -100% auto -9em;
+  height: 50em;
+  font-size: 300%;
+  text-align: justify;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  transform: perspective(300px) rotateX(25deg);
+}
+
+.title .history{
+  position: absolute;
+  top: 100%;
+  /*animation: titles 81s linear 13s;*/
+  animation: titles 20s linear 0s;
+}
+
+/* ANIMATIONS */
+@keyframes intro {
+  0% { opacity: 1; }
+  20% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes logo {
+  0% {
+    transform: scale(2.75);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+@keyframes titles {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    top: 20%;
+    opacity: 0;
+  }
+}
