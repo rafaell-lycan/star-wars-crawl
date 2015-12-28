@@ -1,23 +1,25 @@
-body{
+html, body{
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   background-color: #000;
   background-image: url('../img/stars-bg.jpg');
   font-family: 'News Cycle', sans-serif;
   color: #ff6;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
 
 section{
   position: absolute;
-  top: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
 .intro{
-  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -34,6 +36,7 @@ section{
 }
 
 .logo {
+  top: 0;
   text-align: center;
 }
 .logo img {
@@ -44,11 +47,13 @@ section{
 }
 
 .title {
-  position: relative;
-  width: 18em;
-  margin: -100% auto -9em;
+  position: absolute;
+  width: 20em;
   height: 50em;
-  font-size: 300%;
+  bottom: 0;
+  left: 50%;
+  margin-left: -10em;
+  font-size: 350%;
   text-align: justify;
   overflow: hidden;
   transform-origin: 50% 100%;
@@ -57,9 +62,15 @@ section{
 
 .title .history{
   position: absolute;
+  font-weight: 700;
   top: 100%;
-  /*animation: titles 81s linear 13s;*/
-  animation: titles 20s linear 0s;
+  opacity: 0;
+  animation: titles 80s linear 13s;
+}
+
+.title .history h1, .title .history h2, .title .history h3{
+  text-align: center;
+  margin: 0;
 }
 
 /* ANIMATIONS */
@@ -85,15 +96,7 @@ section{
 }
 
 @keyframes titles {
-  0% {
-    top: 100%;
-    opacity: 1;
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    top: 20%;
-    opacity: 0;
-  }
+  0% { top: 100%; opacity: 1; }
+  90% { opacity: 1; }
+	100% { top: 20%; opacity: 0; }
 }
