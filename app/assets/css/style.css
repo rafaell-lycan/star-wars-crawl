@@ -1,14 +1,25 @@
+@font-face {
+  font-family: 'News Gothic MT Regular';
+  src: url('../fonts/news-gothic-mt-regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/news-gothic-mt-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/news-gothic-mt-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/news-gothic-mt-regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/news-gothic-mt-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/news-gothic-mt-regular.svg#News Gothic MT Regular') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body{
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   background-color: #000;
-  background-image: url('../img/stars-bg.jpg');
+  background-image: url('../img/bg-stars.png');
   font: 700 1em 'News Cycle', sans-serif;
-  color: #ff6;
+  color: #ffd23e;
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
 
@@ -16,11 +27,56 @@ section{
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
 .hidden{
   display: none;
+}
+
+.movies{
+  padding: 20px;
+}
+
+.movies .title{
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2em;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.movies .movie-list{
+  margin: 0 auto;
+  padding: 0;
+  width: 900px;
+  max-width: 100%;
+  list-style: none;
+}
+
+.movies .movie-item{
+  display: inline-block;
+}
+
+.movies .movie-item .cover{
+  padding: 10px;
+  width: 120px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.movies .movie-item .cover:hover img{
+  border-color: #999;
+}
+
+.movies .movie-item .cover:hover figcaption{
+  color: #fff;
+}
+
+.movies .movie-item img{
+  width: 100%;
+  height: 180px;
+  border: 1px solid #333;
+  box-shadow: 0 0 1px rgba(0,0,0,.12)
 }
 
 .intro{
@@ -28,20 +84,22 @@ section{
   height: 100%;
   top: 0;
   background-color: #000;
-  color: #4bd5ee;
+  color: #00f1ff;
   opacity: 0;
+  z-index: 3;
   animation: intro 6s ease-out 1s;
 }
 
 .intro h2{
   margin: 20% auto 0;
-  width: 15em;
-  font-size: 200%;
+  width: 16em;
+  font:normal 300% 'Gothic MT Regular', sans-serif;
 }
 
 .logo {
   top: 0;
   text-align: center;
+  z-index: 1;
 }
 .logo img {
   width: 18em;
@@ -50,37 +108,65 @@ section{
   animation: logo 10s ease-out 9.5s;
 }
 
-.title {
+.paused .intro,
+.paused .logo img,
+.paused .text .history {
+  animation-play-state: paused !important;
+}
+
+
+.text {
   position: absolute;
-  width: 16em;
+  width: 60%;
   height: 50em;
   top: auto;
   bottom: 0;
   left: 50%;
-  margin: 0 0 0 -8em;
+  margin: 0 0 0 -30%;
   font-size: 350%;
   text-align: justify;
   overflow: hidden;
+  z-index: 2;
   transform-origin: 50% 100%;
-  transform: perspective(300px) rotateX(25deg);
+  transform: perspective(500px) rotateX(35deg);
 }
 
-.title .history{
+.text .history{
   position: absolute;
   width: 100%;
   top: 100%;
   opacity: 0;
-  animation: titles 80s linear 13s;
+  animation: titles 80s linear 14s;
 }
 
-.title .history h1, .title .history h2, .title .history h3{
+.text .history > * {
+  text-shadow: 0 0 1px rgba(0,0,0,.12);
+  backface-visibility: hidden;
+  line-height: 1.4em;
+  letter-spacing: .08em;
+  margin: 1.35em 0 1.85em 0;
+}
+
+.text .history .episode, .text .history .title{
   text-align: center;
-  margin: 0;
+  letter-spacing: 0;
+}
+
+.text .history .episode{
+  margin: 0 0 30px 0;
+}
+
+.text .history .title {
+  margin: 10px 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 /* ANIMATIONS */
 @keyframes intro {
-  0% { opacity: 1; }
+  0% { opacity: 0; }
   20% { opacity: 1; }
   90% { opacity: 1; }
   100% { opacity: 0; }
@@ -88,11 +174,14 @@ section{
 
 @keyframes logo {
   0% {
-    transform: scale(2.75);
+    transform: scale(5);
     opacity: 1;
   }
   50% {
     opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
   }
   100% {
     transform: scale(0.1);
@@ -103,5 +192,5 @@ section{
 @keyframes titles {
   0% { top: 100%; opacity: 1; }
   90% { opacity: 1; }
-	100% { top: 20%; opacity: 0; }
+	100% { top: 0%; opacity: 0; }
 }
