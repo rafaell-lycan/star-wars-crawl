@@ -9,6 +9,7 @@
   var movies = $('.movies');
   var audio = document.querySelector('audio');
   var moviesList = $('.movie-list');
+  var controllers = $('.controllers');
   var jsonData = {};
 
   moviesList.on('click', '.cover', function(e) {
@@ -16,10 +17,30 @@
     loadIntro(movie.text());
   });
 
-  function loadJsonData() {
+  controllers.on('click', 'i', function(e) {
+    if ($(this).hasClass('play')) {
+      toggleAnimation();
+      controllers.find('.play').toggleClass('hidden');
+    }
+
+    if ($(this).hasClass('home')) {
+      changeView();
+      controllers.find('.play').toggleClass('hidden');
+    }
+
+    if ($(this).hasClass('reset')) {
+      // Reset Animation
+    }
+
+  });
+
+  audio.addEventListener('ended', changeView);
+
+  function loadJsonData(callback) {
     $.get('./intro.json')
       .then(function(data) {
         jsonData = data;
+        if (callback) callback();
       });
   }
 
@@ -37,13 +58,27 @@
 
     animation.find('.history').append(history);
 
-    start();
+    changeView();
+
+    audio.play();
   }
 
-  function start() {
+  function init() {
+    loadJsonData(function() {
+      movies.toggleClass('hidden');
+    });
+  }
+
+  function changeView() {
     movies.toggleClass('hidden');
     animation.toggleClass('hidden');
-    audio.play();
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  function toggleAnimation() {
+    if (!audio.paused) return pause();
+    play();
   }
 
   function pause() {
@@ -56,5 +91,5 @@
     audio.play();
   }
 
-  loadJsonData();
+  init();
 })();
