@@ -1,0 +1,7 @@
+node_modules
+README.md
+Gulpfile.js
+package.json
+app
+assets/css/style.css
+assets/js/app.js

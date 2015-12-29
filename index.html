@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars Opening</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=News+Cycle|Oswald">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+<body>
+  <main class="main">
+    <section class="movies hidden">
+      <h1 class="title">Select your favorite movie</h1>
+      <ul class="movie-list">
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-1.jpg" alt="">
+            <figcaption>
+              <span>Episode I</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-2.jpg" alt="">
+            <figcaption>
+              <span>Episode II</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-3.jpg" alt="">
+            <figcaption>
+              <span>Episode III</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-4.jpg" alt="">
+            <figcaption>
+              <span>Episode IV</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-5.jpg" alt="">
+            <figcaption>
+              <span>Episode V</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-6.jpg" alt="">
+            <figcaption>
+              <span>Episode VI</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="movie-item">
+          <figure class="cover">
+            <img src="assets/img/covers/episode-7.jpg" alt="">
+            <figcaption>
+              <span>Episode VII</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+    <div class="animation hidden">
+      <section class="intro">
+        <h2>
+          A long time ago, in a galaxy far, <br>
+           far away....
+        </h2>
+      </section>
+      <section class="logo">
+        <img src="assets/img/sw-logo.svg">
+      </section>
+      <section class="text">
+        <div class="history">
+          <h3 class="episode">Episode IV</h3>
+          <h1 class="title">A new hope</h1>
+          <p>
+            It is a period of civil war.
+            Rebel spaceships, striking
+            from a hidden base, have won
+            their first victory against
+            the evil Galactic Empire.
+          </p>
+
+          <p>
+            During the battle, Rebel
+            spies managed to steal secret
+            plans to the Empire's
+            ultimate weapon, the DEATH
+            STAR, an armored space
+            station with enough power to
+            destroy an entire planet.
+          </p>
+
+          <p>
+            Pursued by the Empire's
+            sinister agents, Princess
+            Leia races home aboard her
+            starship, custodian of the
+            stolen plan that can save
+            her people and restore
+            freedom to the galaxy....
+          </p>
+        </div>
+      </section>
+
+      <div class="controllers">
+        <i class="fa fa-undo reset"></i>
+        <i class="fa fa-play-circle play hidden"></i>
+        <i class="fa fa-pause-circle-o play"></i>
+        <i class="fa fa-home home"></i>
+      </div>
+    </div>
+
+    <audio preload="auto">
+      <source src="assets/sound/intro.ogg" type="audio/ogg" />
+      <source src="assets/sound/intro.mp3" type="audio/mpeg" />
+    </audio>
+  </main>
+
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="assets/js/app.min.js"></script>
+</body>
+</html>
